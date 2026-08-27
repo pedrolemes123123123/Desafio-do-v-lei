@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+	--blue: #075985;
+	--deep-blue: #020c3b;
+	--orange: #3e92f1;
+	--court: #1d94f5;
+	--line: rgba(255, 255, 255, .92);
+}
+
+* { box-sizing: border-box; }
+
+body {
+	min-height: 100vh;
+	margin: 0;
+	padding: 28px 16px 42px;
+	color: var(--deep-blue);
+	font-family: 'Nunito', Arial, sans-serif;
+	text-align: center;
+	background: radial-gradient(circle at top, #38bdf8 0, #0e7490 38%, #082f49 100%);
+}
+
+h1 {
+	margin: 0 0 24px;
+	color: #fff;
+	font-size: clamp(2rem, 5vw, 3.2rem);
+	font-weight: 800;
+	letter-spacing: .03em;
+	text-shadow: 0 3px 0 rgba(0, 0, 0, .18);
+}
+
+.quadra-container {
+	width: min(100%, 820px);
+	margin: 0 auto 24px;
+	filter: drop-shadow(0 12px 16px rgba(0, 0, 0, .22));
+}
+
+.linha-rede {
+	padding: 9px;
+	color: white;
+	background: var(--deep-blue);
+	border: 4px solid #e0f2fe;
+	border-bottom: 0;
+	border-radius: 0;
+	font-weight: 800;
+	letter-spacing: .12em;
+}
+
+.quadra {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background: var(--court);
+	border: 4px solid #e0f2fe;
+	border-radius: 14px;
+}
+
+.lado-quadra { padding: 14px; }
+.lado-rival { background: #2b6ec5; }
+.lado-equipe { background: var(--court); }
+.nome-time { display: block; margin-bottom: 10px; color: var(--deep-blue); }
+.jogadores-quadra { display: grid; grid-template-columns: repeat(3, 1fr); }
+.rival-posicao { color: #fff; background: rgba(8, 47, 73, .28); }
+
+.bola {
+	position: absolute;
+	z-index: 2;
+	width: 36px;
+	height: 36px;
+	display: grid;
+	place-items: center;
+	font-size: 1.65rem;
+	transform: translate(-50%, -50%);
+	filter: drop-shadow(0 3px 2px rgba(0, 0, 0, .35));
+	transition: left .35s ease, top .35s ease;
+	pointer-events: none;
+}
+
+.posicao {
+	display: flex;
+	min-width: 0;
+	min-height: 125px;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 9px;
+	padding: 10px;
+	border: 2px solid rgba(255, 255, 255, .75);
+	transition: transform .2s, background .2s;
+}
+
+.posicao:hover { z-index: 1; background: rgba(255, 255, 255, .2); transform: scale(1.03); }
+
+.label-pos { color: var(--deep-blue); font-size: .9rem; font-weight: 800; }
+
+input {
+	width: min(100%, 160px);
+	padding: 9px 10px;
+	color: var(--deep-blue);
+	font: inherit;
+	font-size: .9rem;
+	font-weight: 700;
+	text-align: center;
+	background: rgba(255, 255, 255, .9);
+	border: 2px solid rgba(8, 47, 73, .35);
+	border-radius: 8px;
+	outline: none;
+}
+
+input:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(249, 115, 22, .25); }
+
+.controles {
+	width: min(100%, 820px);
+	margin: 0 auto;
+	padding: 20px;
+	background: rgba(255, 255, 255, .94);
+	border-radius: 16px;
+	box-shadow: 0 8px 18px rgba(0, 0, 0, .18);
+}
+
+.controles p { margin: 0 0 14px; font-size: 1.1rem; font-weight: 800; }
+
+.grupo-controles {
+	padding: 12px;
+	border-radius: 12px;
+}
+
+.grupo-controles h3 {
+	margin: 0 0 8px;
+	font-size: 1.1rem;
+}
+
+.grupo-equipe { background: #e0f2fe; }
+.grupo-rival { margin-top: 12px; background: #ffedd5; }
+.grupo-rival h3 { color: #9a3412; }
+.grupo-passe { margin-top: 12px; }
+
+button {
+	margin: 5px;
+	padding: 11px 17px;
+	color: white;
+	font: inherit;
+	font-weight: 800;
+	background: var(--blue);
+	border: 0;
+	border-radius: 9px;
+	cursor: pointer;
+	box-shadow: 0 3px 0 var(--deep-blue);
+	transition: transform .15s, background .15s;
+}
+
+button:hover { background: var(--orange); transform: translateY(-2px); }
+button:active { transform: translateY(1px); box-shadow: none; }
+
+.btn-levantar { background: #16a34a; }
+.btn-rodizio { background: #7c3aed; }
+
+h2 { margin: 18px 0 0; color: #fff; font-size: 1.35rem; }
+#placar { color: #fde68a; font-size: 1.6rem; }
+
+@media (max-width: 600px) {
+	body { padding: 20px 10px 30px; }
+	.lado-quadra { padding: 8px; }
+	.posicao { min-height: 110px; padding: 6px 3px; gap: 6px; }
+	.label-pos { font-size: .72rem; }
+	input { padding: 7px 3px; font-size: .78rem; }
+	button { padding: 10px 12px; }
+}

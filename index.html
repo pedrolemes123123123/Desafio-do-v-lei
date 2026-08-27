@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>🏐 Desafio do Vôlei</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Russo+One&family=Teko:wght@600&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main>
+		<h1>🏐 Desafio do Vôlei</h1>
+
+		<section class="quadra-container" aria-labelledby="titulo-quadra">
+			<h2 id="titulo-quadra">Quadra completa</h2>
+			<div class="quadra">
+				<div class="lado-quadra lado-rival" aria-label="Metade da Equipe B">
+					<strong class="nome-time">⚔️ EQUIPE B</strong>
+					<div class="jogadores-quadra">
+						<label class="posicao rival-posicao" for="rival4" data-posicao="rival-4"><input id="rival4" value="Rival 4" aria-label="Jogador rival da posição 4"></label>
+						<label class="posicao rival-posicao" for="rival3" data-posicao="rival-3"><input id="rival3" value="Rival 3" aria-label="Jogador rival da posição 3"></label>
+						<label class="posicao rival-posicao" for="rival2" data-posicao="rival-2"><input id="rival2" value="Rival 2" aria-label="Jogador rival da posição 2"></label>
+						<label class="posicao rival-posicao" for="rival5" data-posicao="rival-5"><input id="rival5" value="Rival 5" aria-label="Jogador rival da posição 5"></label>
+						<label class="posicao rival-posicao" for="rival6" data-posicao="rival-6"><input id="rival6" value="Rival 6" aria-label="Jogador rival da posição 6"></label>
+						<label class="posicao rival-posicao" for="rival1" data-posicao="rival-1"><input id="rival1" value="Rival 1" aria-label="Jogador rival da posição 1"></label>
+					</div>
+				</div>
+				<div class="linha-rede">REDE</div>
+				<div class="lado-quadra lado-equipe" aria-label="Metade da Equipe A">
+					<strong class="nome-time">🏐 EQUIPE A</strong>
+					<div class="jogadores-quadra">
+					<label class="posicao" for="pos4" data-posicao="pos4">
+					<span class="label-pos">Posição 4</span>
+					<input id="pos4" value="Jogador 4" aria-label="Jogador da posição 4">
+					</label>
+					<label class="posicao" for="pos3" data-posicao="pos3">
+					<span class="label-pos">Posição 3</span>
+					<input id="pos3" value="Jogador 3" aria-label="Jogador da posição 3">
+					</label>
+					<label class="posicao" for="pos2" data-posicao="pos2">
+					<span class="label-pos">Posição 2</span>
+					<input id="pos2" value="Jogador 2" aria-label="Jogador da posição 2">
+					</label>
+					<label class="posicao" for="pos5" data-posicao="pos5">
+					<span class="label-pos">Posição 5</span>
+					<input id="pos5" value="Jogador 5" aria-label="Jogador da posição 5">
+					</label>
+					<label class="posicao" for="pos6" data-posicao="pos6">
+					<span class="label-pos">Posição 6</span>
+					<input id="pos6" value="Jogador 6" aria-label="Jogador da posição 6">
+					</label>
+					<label class="posicao pos-1" for="pos1" data-posicao="pos1">
+					<span class="label-pos">Posição 1 · Saque</span>
+					<input id="pos1" value="Jogador 1" aria-label="Jogador da posição 1">
+					</label>
+					</div>
+				</div>
+				<div id="bola" class="bola" role="img" aria-label="Bola no centro da rede">🏐</div>
+			</div>
+		</section>
+
+		<p id="placar" class="numero-placar">Equipe A: 0 · Equipe B: 0<br>Sets: 0 x 0 (0/7)</p>
+
+		<section class="controles" aria-label="Ações da partida">
+			<div class="grupo-controles grupo-equipe">
+				<h3>🏐 Equipe A</h3>
+				<button type="button" onclick="sacar()">Sacar</button>
+				<button type="button" onclick="defender()">Defender</button>
+				<button type="button" class="btn-levantar" onclick="levantar()">Levantar</button>
+				<button type="button" onclick="atacar()">Atacar</button>
+				<button type="button" onclick="bloquear()">Bloquear</button>
+				<button type="button" class="btn-rodizio" onclick="fazerRodizio()">Fazer rodízio</button>
+			</div>
+
+			<div class="grupo-controles grupo-rival">
+				<h3>⚔️ Equipe B</h3>
+				<button type="button" onclick="pontoRival()">Ponto Equipe B</button>
+				<button type="button" onclick="rivalSacar()">Sacar</button>
+				<button type="button" onclick="rivalDefender()">Defender</button>
+				<button type="button" class="btn-levantar" onclick="rivalLevantar()">Levantar</button>
+				<button type="button" onclick="rivalAtacar()">Atacar</button>
+				<button type="button" onclick="rivalBloquear()">Bloquear</button>
+				<button type="button" class="btn-rodizio" onclick="fazerRodizioRival()">Fazer rodízio</button>
+			</div>
+
+			<div class="grupo-passe">
+				<button type="button" onclick="passarBolaProximo()">🏐 Passar bola para o próximo</button>
+				<button type="button" onclick="alternarJogoAutomatico()" id="btn-automatico">▶️ Iniciar jogo automático</button>
+			</div>
+		</section>
+
+		<p id="resultado" role="status" aria-live="polite">Escolha uma ação para começar.</p>
+	</main>
+
+	<script src="script.js"></script>
+</body>
+</html>
